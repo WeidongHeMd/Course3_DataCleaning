@@ -1,1 +1,75 @@
-this CodeBook
+CodeBook
+
+1 Raw Data
+
+The raw data was downloaded from the webiste:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Unzipping the file generated the "UCI HAR Dataset" folder, which contains data files and associated documentations. The following data files were used in this analysis:
+
+- 'features.txt': List of all features.
+- 'train/X_train.txt': Training set.
+- 'train/y_train.txt': Training labels.
+- 'train/subject_train.txt: Training subjects
+- 'test/X_test.txt': Test set.
+- 'test/y_test.txt': Test labels.
+- 'test/subject_test.txt: test subjects
+
+To preserve the raw data, these files were copied to the "./data/" folder for use in this analysis.
+
+2. Steps to obtain the required data set
+
+The resulted data set was saved to a file named "averages.csv." As documented in detail in the script "run_analysis.R", the final data set was obtained through four main steps each with numerous operations: 
+
+Step 0: obtain the raw data from the data source
+Step 1: merge the training and test data sets 
+Step 2: Extracts only the measurements on the mean and standard deviation for each measurement.
+Step 3: creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+3. Variable names
+
+The final data set in averages.csv includes 180 rows (30 subjects x 6 activities) and 81 variables:
+
+- the first varaible - Subject: "1", "2", ..., "30"
+- the second variable - Activity: "LAYING", "SITTING", "STANDING","Walking","WALKING_DOWNSTAIRS" "WALKING_UPSTAIRS"
+- the rest columns adopted the same name as in the original data set for convient reference and tracing back:
+[3] "1 tBodyAcc-mean()-X"                 "2 tBodyAcc-mean()-Y"                
+ [5] "3 tBodyAcc-mean()-Z"                 "4 tBodyAcc-std()-X"                 
+ [7] "5 tBodyAcc-std()-Y"                  "6 tBodyAcc-std()-Z"                 
+ [9] "41 tGravityAcc-mean()-X"             "42 tGravityAcc-mean()-Y"            
+[11] "43 tGravityAcc-mean()-Z"             "44 tGravityAcc-std()-X"             
+[13] "45 tGravityAcc-std()-Y"              "46 tGravityAcc-std()-Z"             
+[15] "81 tBodyAccJerk-mean()-X"            "82 tBodyAccJerk-mean()-Y"           
+[17] "83 tBodyAccJerk-mean()-Z"            "84 tBodyAccJerk-std()-X"            
+[19] "85 tBodyAccJerk-std()-Y"             "86 tBodyAccJerk-std()-Z"            
+[21] "121 tBodyGyro-mean()-X"              "122 tBodyGyro-mean()-Y"             
+[23] "123 tBodyGyro-mean()-Z"              "124 tBodyGyro-std()-X"              
+[25] "125 tBodyGyro-std()-Y"               "126 tBodyGyro-std()-Z"              
+[27] "161 tBodyGyroJerk-mean()-X"          "162 tBodyGyroJerk-mean()-Y"         
+[29] "163 tBodyGyroJerk-mean()-Z"          "164 tBodyGyroJerk-std()-X"          
+[31] "165 tBodyGyroJerk-std()-Y"           "166 tBodyGyroJerk-std()-Z"          
+[33] "201 tBodyAccMag-mean()"              "202 tBodyAccMag-std()"              
+[35] "214 tGravityAccMag-mean()"           "215 tGravityAccMag-std()"           
+[37] "227 tBodyAccJerkMag-mean()"          "228 tBodyAccJerkMag-std()"          
+[39] "240 tBodyGyroMag-mean()"             "241 tBodyGyroMag-std()"             
+[41] "253 tBodyGyroJerkMag-mean()"         "254 tBodyGyroJerkMag-std()"         
+[43] "266 fBodyAcc-mean()-X"               "267 fBodyAcc-mean()-Y"              
+[45] "268 fBodyAcc-mean()-Z"               "269 fBodyAcc-std()-X"               
+[47] "270 fBodyAcc-std()-Y"                "271 fBodyAcc-std()-Z"               
+[49] "294 fBodyAcc-meanFreq()-X"           "295 fBodyAcc-meanFreq()-Y"          
+[51] "296 fBodyAcc-meanFreq()-Z"           "345 fBodyAccJerk-mean()-X"          
+[53] "346 fBodyAccJerk-mean()-Y"           "347 fBodyAccJerk-mean()-Z"          
+[55] "348 fBodyAccJerk-std()-X"            "349 fBodyAccJerk-std()-Y"           
+[57] "350 fBodyAccJerk-std()-Z"            "373 fBodyAccJerk-meanFreq()-X"      
+[59] "374 fBodyAccJerk-meanFreq()-Y"       "375 fBodyAccJerk-meanFreq()-Z"      
+[61] "424 fBodyGyro-mean()-X"              "425 fBodyGyro-mean()-Y"             
+[63] "426 fBodyGyro-mean()-Z"              "427 fBodyGyro-std()-X"              
+[65] "428 fBodyGyro-std()-Y"               "429 fBodyGyro-std()-Z"              
+[67] "452 fBodyGyro-meanFreq()-X"          "453 fBodyGyro-meanFreq()-Y"         
+[69] "454 fBodyGyro-meanFreq()-Z"          "503 fBodyAccMag-mean()"             
+[71] "504 fBodyAccMag-std()"               "513 fBodyAccMag-meanFreq()"         
+[73] "516 fBodyBodyAccJerkMag-mean()"      "517 fBodyBodyAccJerkMag-std()"      
+[75] "526 fBodyBodyAccJerkMag-meanFreq()"  "529 fBodyBodyGyroMag-mean()"        
+[77] "530 fBodyBodyGyroMag-std()"          "539 fBodyBodyGyroMag-meanFreq()"    
+[79] "542 fBodyBodyGyroJerkMag-mean()"     "543 fBodyBodyGyroJerkMag-std()"     
+[81] "552 fBodyBodyGyroJerkMag-meanFreq()"
