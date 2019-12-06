@@ -1,9 +1,12 @@
 
 1. Introduction
 
-This is the code book for the tidy data set in the file: mean_tidydata.txt. This data set was created by running the R script - “run_analysis.R” to process the data collected from the accelerometers from the Samsung Galaxy S smartphone.
+This is the code book for the tidy data set in the file: mean_tidydata.txt. This data set was created 
+by running the R script - “run_analysis.R” to process the data collected from the accelerometers 
+from the Samsung Galaxy S smartphone.
 
-In the following, the Study Design section provides a description of the original data sets; the Code Book section describes the variables, the data, and any transformations performed to clean up the data and created the tidy data set (mean_tidydata.text).
+In the following, the Study Design section provides a description of the original data sets; the 
+Code Book section describes the variables, the data, and any transformations performed to clean up the data and created the tidy data set (mean_tidydata.text).
 
 2. Study Design
 
@@ -12,15 +15,22 @@ In the following, the Study Design section provides a description of the origina
 The data for this project was downloaded from:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Two documents in the package, “README.txt” and “features_info.txt”, provide a description of the data that the package contains. Here is a brief summary:
+Two documents in the package, “README.txt” and “features_info.txt”, provide a description of the 
+data that the package contains. Here is a brief summary:
 
-The data was collected from 30 volunteers (subjects), who wore a Samsung Galaxy S II smart phone on their waist. Each person performed six activities WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING. For each person, the accelerometer and gyroscope embedded  in the smart phone that he or she wore captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz.
+The data was collected from 30 volunteers (subjects), who wore a Samsung Galaxy S II smart phone 
+on their waist. Each person performed six activities WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
+SITTING, STANDING, LAYING. For each person, the accelerometer and gyroscope embedded  in the smart 
+phone that he or she wore captured 3-axial linear acceleration and 3-axial angular velocity at a 
+constant rate of 50Hz.
 
-The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers 
+was selected for generating the training data and 30% the test data. 
 
 For each record in the data sets, it is provided:
 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial acceleration from the accelerometer (total acceleration) and the 
+estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
 - A 561-feature vector with time and frequency domain variables. 
 - Its activity label. 
@@ -29,43 +39,61 @@ For each record in the data sets, it is provided:
 
 2.2 Data files used in the analysis
 
-As mentioned, the data was split two data sets: test data set and the training data set. The test data set includes the following files used in this analysis:
+As mentioned, the data was split two data sets: test data set and the training data set. 
+The test data set includes the following files used in this analysis:
 
 — “X_test.txt”: records
 — “y_test.txt”: the activity labels corresponding to the records in X_test.txt
-— “subject_test.txt”: the identification number of each subject corresponding to each record in X_test.txt
+— “subject_test.txt”: the identification number of each subject corresponding to 
+each record in X_test.txt
 
 The training data set includes the following files used in this analysis:
 
 — “X_train.txt”: records
 — “y_train.txt”: the activity labels corresponding to the records in X_train.txt
-— “subject_train.txt”: the identification number of each subject corresponding to each record in X_train.txt
+— “subject_train.txt”: the identification number of each subject corresponding to each 
+record in X_train.txt
 
 In addition, two files contain the labels for the activities and features:
 
 — “features.txt”: names of the 561 features.
 — “activity_labels.txt”:  numeric id and names of the six activities mentioned above
 
-In the next section, we discuss processing of the data in these files to create the tidy data set required for this project.
+In the next section, we discuss processing of the data in these files to create the tidy 
+data set required for this project.
 
 
 3. Code Book
 
 3.1 Data transformations
 
-The original data includes a training data set and a test data set with thousands of records and 561 features. It is required to merge the two data sets and to create a tidy data set. The resulted tidy data set should contain the averages of the selected features for each activity and each subject. The selected features are “means” and “standard deviations”.
+The original data includes a training data set and a test data set with thousands of records and 
+561 features. It is required to merge the two data sets and to create a tidy data set. The resulted 
+tidy data set should contain the averages of the selected features for each activity and each subject. 
+The selected features are “means” and “standard deviations”.
 
-The script - “run_analysis.R” - was created to process the data and create the tidy data. The main steps include:
+The script - “run_analysis.R” - was created to process the data and create the tidy data. 
+The main steps include:
 
-1). Merging the training and the test sets to create one data set, i.e., data and information contained in the files listed in Section 2.2 above
-2). Selecting only the measurements for the mean and standard deviation variables, i.e., using select{dplyr} and its helper function contains(“mean”) and contain(“std”)
-3). Labeling the activities in the data set with descriptive names, i.e., numerical id of the activities with their labels
-4). Renaming the variables of the data set with appropriate and descriptive names, i.e., removing “.” from names, consistently capitalizing the first letter of each component in a variable names.
-5). From the data set in step 4, creating a second, independent tidy data set with the average of each variable for each activity and each subject. This was primarily accomplished using dplyr functions: group_by, summarize_all. The generated data set was saved a text file (mean_tidydata.text) using write.table function.
+1). Merging the training and the test sets to create one data set, i.e., data and information 
+contained in the files listed in Section 2.2 above
+2). Selecting only the measurements for the mean and standard deviation variables, i.e., using 
+select{dplyr} and its helper function contains(“mean”) and contain(“std”)
+3). Labeling the activities in the data set with descriptive names, i.e., numerical id 
+of the activities with their labels
+4). Renaming the variables of the data set with appropriate and descriptive names, i.e., removing “.” 
+from names, consistently capitalizing the first letter of each component in a variable names.
+5). From the data set in step 4, creating a second, independent tidy data set with the average 
+of each variable for each activity and each subject. This was primarily accomplished using dplyr functions: group_by, summarize_all. The generated data set was saved a text file (mean_tidydata.text) using write.table function.
 
 3.2 The resulted tidy data set: mean_tidydata
 
-The final tidy data set (contained in the file “mean_tidydata”) contains the averages of 86 mean/sd variables for each activity (total 6) and each subject (total 30) - that is a total of 180 rows or records. The names of the variables are listed below. Generally, each name has several components separated by capitalizing their first letter. For example, the third variable “TimeBodyAccMeanX” has four qualifiers or components to describe the variable, namely, “Time”, “Body”, “Acc(elerator)”, “Mean”, and “X”. 
+The final tidy data set (contained in the file “mean_tidydata”) contains the averages of 86 mean/sd 
+variables for each activity (total 6) and each subject (total 30) - that is a total of 180 rows 
+or records. The names of the variables are listed below. Generally, each name has several components 
+separated by capitalizing their first letter. For example, the third variable “TimeBodyAccMeanX” has 
+four qualifiers or components to describe the variable, namely, “Time”, “Body”, “Acc(elerator)”, 
+“Mean”, and “X”. 
 
 For the abbreviated names: 
 
