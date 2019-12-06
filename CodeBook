@@ -6,7 +6,8 @@ by running the R script - “run_analysis.R” to process the data collected fro
 from the Samsung Galaxy S smartphone.
 
 In the following, the Study Design section provides a description of the original data sets; the 
-Code Book section describes the variables, the data, and any transformations performed to clean up the data and created the tidy data set (mean_tidydata.text).
+Code Book section describes the variables, the data, and any transformations performed to clean up 
+the data and created the tidy data set (mean_tidydata.text).
 
 2. Study Design
 
@@ -84,7 +85,9 @@ of the activities with their labels
 4). Renaming the variables of the data set with appropriate and descriptive names, i.e., removing “.” 
 from names, consistently capitalizing the first letter of each component in a variable names.
 5). From the data set in step 4, creating a second, independent tidy data set with the average 
-of each variable for each activity and each subject. This was primarily accomplished using dplyr functions: group_by, summarize_all. The generated data set was saved a text file (mean_tidydata.text) using write.table function.
+of each variable for each activity and each subject. This was primarily accomplished using dplyr 
+functions: group_by, summarize_all. The generated data set was saved a text file (mean_tidydata.text) 
+using write.table function.
 
 3.2 The resulted tidy data set: mean_tidydata
 
