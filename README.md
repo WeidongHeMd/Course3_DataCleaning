@@ -27,9 +27,9 @@ test data set
 When run, the script will read in data from these files as input to create a tidy data set. The script will perform the following steps to process the data it reads in from these files:
 
 1. Merging the training and the test sets to create one data set
-2. Selecting only the measurements for the mean and standard deviation variables
-3. Labeling the activities in the data set with descriptive names
+2. Selecting only the mean and standard deviation variables to create a new data set
+3. Labeling the activities in the new data set with descriptive names
 4. Renaming the variables of the data set with appropriate and descriptive names
-5. From the data set in step 4, creating a second, independent tidy data set with the average of each variable for each activity and each subject.
+5. From the data set in step 4, creating a second, independent a tidy data set with the average of each variable for each activity and each subject.
 
 The result of running the script is a tidy data set, which will be saved as a text file - "mean_tidydata.txt" in the working directory. (please see the CodeBook for detail)
